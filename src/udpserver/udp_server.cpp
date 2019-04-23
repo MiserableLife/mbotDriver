@@ -1,14 +1,12 @@
 #include "udp_server.h"
 #include <iostream>
 #include <vector>
-typedef unsigned short PORT;
-static PORT port{13};
-#define PERIOD 10
+#include <thread>
 
 
 
 UdpServer::UdpServer(boost::asio::io_service& io_service)
-    : socket_(io_service, udp::endpoint(udp::v4(), port)), io_service_(io_service), io(PERIOD)
+    : socket_(io_service, udp::endpoint(udp::v4(), SERVER_PORT)), io_service_(io_service), io(PERIOD)
 {
 	std::thread t(&ImageObject::process,&io);
 	t.detach();	

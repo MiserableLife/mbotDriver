@@ -23,16 +23,16 @@ Observer::Observer(boost::asio::io_service& io_service)
 		
 }
 void 
-Observer::sendto(boost::array<char,128>& buffer, udp::endpoint& remote_endpoint_)
+Observer::sendto(unsigned char* buffer, int len, udp::endpoint& remote_endpoint_)
 {
-	remote_endpoint_.port(READ_PORT);
+	remote_endpoint_.port(CLIENT_READ_PORT);
 
-	std::cout<<socket_.is_open()<<" " <<READ_PORT<<std::endl;
+	std::cout<<socket_.is_open()<<" " <<CLIENT_READ_PORT<<std::endl;
 
-	std::cout<<"Observer("<<this<<")::send  contents : "<<buffer.data()<<" sent..."<<std::endl;
+	std::cout<<"Observer("<<this<<")::send  contents : "<<buffer<<" sent..."<<std::endl;
 	udp::endpoint ep = socket_.local_endpoint();
 	std::cout<< " with port : "<<ep.port()<<std::endl;
-	socket_.async_send_to(boost::asio::buffer(buffer), remote_endpoint_,
+	socket_.async_send_to(boost::asio::buffer(buffer, len), remote_endpoint_,
 			boost::bind(&Observer::handle_send, this)
 			);
 

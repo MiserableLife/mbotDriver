@@ -1,5 +1,5 @@
 
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.7)
 #get_property(global_lib_path GLOBAL PROPERTY lib_path )
 #set(CMAKE_ 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${MBOTDRIVER_LIB} )

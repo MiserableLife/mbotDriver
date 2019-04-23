@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.7)
 
 project(mbotDriver)
 
@@ -15,5 +15,5 @@ add_subdirectory(client)
 add_subdirectory(udpserver)
 add_subdirectory(common)
 
-add_dependencies(udpserver common)
-add_dependencies(client common)
+#add_dependencies(udpserver common)
+#add_dependencies(client common)

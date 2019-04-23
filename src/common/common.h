@@ -3,8 +3,12 @@
 
 enum
 {
-	READ_PORT=921023
+	SERVER_PORT=930320,
+	CLIENT_READ_PORT=921023
 };
-
+enum
+{
+	PERIOD=10
+};
 
 #endif

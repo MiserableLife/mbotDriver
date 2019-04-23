@@ -6,6 +6,7 @@
 #include <chrono>
 #include <vector>
 #include <boost/array.hpp>
+#include <opencv2/opencv.hpp>
 
 class Object
 {
@@ -22,10 +23,17 @@ class ImageObject : public Object
 private:
 	std::unordered_map<udp::endpoint*, Observer*> observers;
 	std::chrono::seconds period;
-	boost::array<char,128> buffer;
+
+	cv::VideoCapture cap;
+	cv::Mat frame;
+	int image_size;
+
+	unsigned char *buffer;
+//	boost::array<char,128> buffer;
 
 public:
 	ImageObject(int sec);
+	~ImageObject();
 	void addObserver(udp::endpoint* e,  Observer *o);
 	void removeObserver(udp::endpoint* e );
 	void process();
