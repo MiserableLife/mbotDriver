@@ -13,7 +13,7 @@ private:
 public:
 	Observer(boost::asio::io_service& io_service);
 
-	void sendto(unsigned char* buffer, int len,  udp::endpoint& e);
+	void sendto(unsigned char* buffer, unsigned int len,  udp::endpoint& e);
 
 	unsigned short port();
 

@@ -11,9 +11,9 @@ set(MBOTDRIVER_LIB ${PROJECT_SOURCE_DIR}/lib CACHE PATH "library path")
 include_directories(common)
 #include_directories(.)
 
+add_subdirectory(common)
 add_subdirectory(client)
 add_subdirectory(udpserver)
-add_subdirectory(common)
 
 #add_dependencies(udpserver common)
 #add_dependencies(client common)

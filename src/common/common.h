@@ -1,14 +1,11 @@
 #ifndef _COMMON_H_
 #define _COMMON_H_
 
+#define 	SERVER_PORT 9303
+#define 	CLIENT_READ_PORT 9210
 enum
 {
-	SERVER_PORT=930320,
-	CLIENT_READ_PORT=921023
-};
-enum
-{
-	PERIOD=10
+	PERIOD=1
 };
 
 #endif
