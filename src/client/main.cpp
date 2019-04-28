@@ -87,7 +87,8 @@ int main(int argc, char* argv[])
 
     udp::resolver resolver(io_service);
 //    udp::resolver::query query(udp::v4(), argv[1], "daytime");
-    udp::endpoint receiver_endpoint(boost::asio::ip::make_address(argv[1]), SERVER_PORT); //= *resolver.resolve(query);
+//    udp::endpoint receiver_endpoint(boost::asio::ip::make_address(argv[1]), SERVER_PORT); //= *resolver.resolve(query);
+    udp::endpoint receiver_endpoint(boost::asio::ip::address::from_string(argv[1]), SERVER_PORT); //= *resolver.resolve(query);
 		std::cout<<"SERVER_PORT : "<<SERVER_PORT<<std::endl;
 
     udp::socket socket(io_service);

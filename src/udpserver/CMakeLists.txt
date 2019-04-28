@@ -23,4 +23,5 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY bin)
 add_executable(${TARGETS} ${SRCS})
 target_link_libraries(${TARGETS} pthread
 																 boost_system
+																 mbd_common
 																 ${OPENCV_LIBRARIES})
