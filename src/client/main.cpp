@@ -45,7 +45,7 @@ static void recv_print(boost::asio::io_service *io_service )
 
 		MBotPacket& packet = frmap[fr->id];
 		packet.add(fr, len);
-		std::cout<<"id ["<<fr->id<<"] , seq : "<<fr->seq<<" came!"<<std::endl;
+//		std::cout<<"id ["<<fr->id<<"] , seq : "<<fr->seq<<" came!"<<std::endl;
 		if(packet.assemble())
 		{
 			std::cout<<"id ["<<fr->id<<"] packet assembled!"<<std::endl;
@@ -66,7 +66,7 @@ static void recv_print(boost::asio::io_service *io_service )
 
 		}
 		
-		std::cout<<std::endl<<"msg received! size : "<< len <<std::endl;
+//		std::cout<<std::endl<<"msg received! size : "<< len <<std::endl;
 		std::cout<<*(unsigned short*)recv_buf<<std::endl;
 
 	}
