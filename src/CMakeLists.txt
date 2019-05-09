@@ -13,7 +13,8 @@ include_directories(common)
 
 add_subdirectory(common)
 add_subdirectory(client)
-add_subdirectory(udpserver)
+#add_subdirectory(udpserver)
+add_subdirectory(server)
 
 #add_dependencies(udpserver common)
 #add_dependencies(client common)
