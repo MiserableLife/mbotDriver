@@ -43,8 +43,15 @@ ImageObject::process()
 	while(true)
 	{
 		update();
-		for(auto& o : observers)
-			o->sendto(buffer, image_size);//if failed sento due to disconnection, we will erase it from the list
+//		for(auto& o : observers)
+		for(std::vector<Observer*>::iterator it = observers.begin(); it!= observers.end(); )
+			if((*it)->sendto(buffer, image_size) == -1)//if failed sento due to disconnection, we will erase it from the list
+			{
+				delete *it;
+				it=observers.erase(it);
+			}
+			else
+				it++;
 
 		std::this_thread::sleep_for(period);
 	}

@@ -46,8 +46,12 @@ Observer::sendto(unsigned char* buffer, unsigned int len)
 	{
 		std::cout<<ec.what()<<std::endl;
 		std::cout<<ec.code().value()<<std::endl;
+		if(ec.code().value() == EPIPE)
+			return -1;
+
 	}
 	std::cout<<"send to called! ( "<<size<<" ) "<<std::endl;
+	return 0;
 //	std::cout<< "To  : "<<remote_endpoint_.address()<<" with port : "<<remote_endpoint_.port()<<std::endl;
 
 
