@@ -6,9 +6,14 @@
 
 
 UdpServer::UdpServer(boost::asio::io_service& io_service)
-    : socket_(io_service, udp::endpoint(udp::v4(), COMMAND_PORT)), io_service_(io_service)
+    : socket_(io_service, udp::endpoint(udp::v4(), COMMAND_PORT)), io_service_(io_service), commander(new PlaneCommander)
 {
   start_receive();
+	commander->start();
+}
+UdpServer::~UdpServer()
+{
+	delete commander;
 }
 
 void
@@ -27,28 +32,14 @@ UdpServer::handle_receive(const boost::system::error_code& error,
 {
 	if (!error || error == boost::asio::error::message_size)
 	{
-		std::string cmd {recv_buffer_.data()};
-		if(cmd.length() > len)
-			cmd.resize(len);
-		std::cout<<cmd<<" has came ! len : " <<len<<std::endl ;
-		if(cmd == "right")
-		{
-		}
-		else if(cmd=="left")
-		{
-		}
-		else if(cmd == "go")
-		{
-		}
-		else if(cmd == "back")
-		{
+		int key = *(int*)recv_buffer_.data();
+		if(len > sizeof(key)+1)
+			assert(0);
 
-		}
-		else
-		{
-			cmd = "nop";
-		}
-		std::cout<<cmd<<" has came!"<<std::endl;
+		std::cout<<"len : "<<len<<"key size : "<<sizeof(key)<<std::endl;
+		commander->command(key);
+		
+
 //		boost::shared_ptr<std::string> message(
 //				new std::string(make_daytime_string()));
 

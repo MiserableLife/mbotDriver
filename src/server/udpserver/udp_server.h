@@ -9,6 +9,7 @@
 #include <iostream>
 #include "common.h"
 #include "logger.h"
+#include "commander.h"
 
 using boost::asio::ip::udp;
 
@@ -20,7 +21,7 @@ class UdpServer
 {
 public:
   UdpServer(boost::asio::io_service& io_service);
-
+	~UdpServer();
 private:
   void start_receive();
 
@@ -35,6 +36,7 @@ private:
   udp::endpoint remote_endpoint_;
   boost::array<char, 128> recv_buffer_;
 	boost::asio::io_service& io_service_;
+	Commander* commander;
 };
 
 

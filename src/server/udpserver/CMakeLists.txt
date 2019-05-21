@@ -11,7 +11,7 @@ cmake_minimum_required(VERSION 3.7)
 #link_libraries(${OPENCV_LIBRARIES})
 set(CMAKE_BUILD_TYPE Debug)
 set(TARGETS udpserver)
-set(SRCS 	
+set(SRCS 	commander.cpp
 					udp_server.cpp)
 set(CMAKE_C_COMPILER "clang++")
 
