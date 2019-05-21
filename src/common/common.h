@@ -9,6 +9,14 @@
 #define 	IMAGE_HEIGHT 			480
 #define 	IMAGE_STEP 				1920
 
+
+/* key value map follows Qt constant */
+#define KEY_LEFT	0x01000012	 
+#define KEY_UP		0x01000013	 
+#define KEY_RIGHT 0x01000014	 
+#define KEY_DOWN 	0x01000015	 
+																            
+
 enum
 {
 	PERIOD=1
