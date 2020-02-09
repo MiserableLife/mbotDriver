@@ -35,8 +35,8 @@ Observer::handle_cmd(const boost::system::error_code& ec, std::size_t length)
 int 
 Observer::sendto(unsigned char* buffer, unsigned int len)
 {
-	static int i{};
-	buffer[0]=i++;
+//	static int i{};
+//	buffer[0]=i++;
 	int size{};
 	try
 	{

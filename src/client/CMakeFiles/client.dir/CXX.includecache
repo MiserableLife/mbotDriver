@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/Workspace/mbotDriver/src/client/Client.cpp
+iostream
+-
+boost/bind.hpp
+-
+Client.h
+/home/pi/Workspace/mbotDriver/src/client/Client.h
+
+/home/pi/Workspace/mbotDriver/src/client/Client.h
+boost/asio.hpp
+-
+common.h
+/home/pi/Workspace/mbotDriver/src/client/common.h
+
+common/common.h
+

@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/Workspace/mbotDriver/src/common/MBotPacket.cpp
+MBotPacket.h
+/home/pi/Workspace/mbotDriver/src/common/MBotPacket.h
+memory.h
+-
+
+/home/pi/Workspace/mbotDriver/src/common/MBotPacket.h
+limits
+-
+
+/home/pi/Workspace/mbotDriver/src/common/logger.cpp
+logger.h
+/home/pi/Workspace/mbotDriver/src/common/logger.h
+
+/home/pi/Workspace/mbotDriver/src/common/logger.h
+fstream
+-
+string
+-
+

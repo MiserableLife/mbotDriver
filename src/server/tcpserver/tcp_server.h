@@ -32,13 +32,13 @@ private:
 
 	ImageObject io;
 
-/*
 	tcp::socket socket_;
+/*
   tcp::endpoint remote_endpoint_;
   boost::array<char, 128> recv_buffer_;
 	boost::asio::io_service& io_service_;
 */
-
+	
 	tcp::acceptor acceptor_;
 };
 

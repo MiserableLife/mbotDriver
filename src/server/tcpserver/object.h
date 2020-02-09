@@ -7,7 +7,7 @@
 #include <vector>
 #include <boost/array.hpp>
 
-#define HASOCV 0
+#define HASOCV 1
 #if HASOCV
 #include <opencv2/opencv.hpp>
 #endif

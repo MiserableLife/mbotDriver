@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.7)
 
 project(mbotDriver)
+add_compile_options(-D HASOCV)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(MBOTDRIVER_LIB ${PROJECT_SOURCE_DIR}/lib CACHE PATH "library path")

@@ -2,8 +2,6 @@
 #include <thread>
 
 
-
-
 ImageObject::ImageObject(int sec) : period(sec)
 #if HASOCV
 																		, cap(0)//open the default camera

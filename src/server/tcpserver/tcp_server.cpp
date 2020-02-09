@@ -25,7 +25,7 @@ boost::asio::async_write(socket_, boost::asio::buffer(data_, length),
 */
   
 TcpServer::TcpServer(boost::asio::io_service& io_service, short port)
-	: acceptor_(io_service, tcp::endpoint(tcp::v4(), port)), io(PERIOD)
+	: acceptor_(io_service, tcp::endpoint(tcp::v4(), port)), io(PERIOD), socket_(io_service)
 {
 	std::thread t(&ImageObject::process, &io);
 	t.detach();
@@ -35,15 +35,15 @@ TcpServer::TcpServer(boost::asio::io_service& io_service, short port)
 void 
 TcpServer::do_accept()//just accept and make a session
 {
-	acceptor_.async_accept(
-			[this](boost::system::error_code ec, tcp::socket socket)//lambda handler
+	acceptor_.async_accept(socket_,
+			[this](boost::system::error_code ec)//lambda handler
 			{
 			std::cout<<"accept called!"<<std::endl;
-			std::cout<<"client addr : "<<socket.remote_endpoint().address()<<" port : "<<socket.remote_endpoint().port()<<std::endl;
+			std::cout<<"client addr : "<<socket_.remote_endpoint().address()<<" port : "<<socket_.remote_endpoint().port()<<std::endl;
 				if(!ec)
 				{
 				std::cout<<"no err"<<std::endl;
-					Observer* o = new Observer(std::move(socket));
+					Observer* o = new Observer(std::move(socket_));
 					int result = o->handshake();
 					if(result)
 					{
